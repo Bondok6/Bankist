@@ -46,12 +46,28 @@ btnScrollTo.addEventListener('click', () => {
 
 });
 
-// Page Navigation
-document.querySelectorAll('.nav__link').forEach((link) => {
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
-    const id = link.getAttribute('href');
-    // console.log(id);
+// Page Navigation || Delegation way
+
+// document.querySelectorAll('.nav__link').forEach((link) => {
+//   link.addEventListener('click', function (e) {
+    // e.preventDefault();
+    // const id = this.getAttribute('href');
+    // // console.log(id);
+    // let coords = document.querySelector(id).getBoundingClientRect();
+
+    // window.scrollTo({
+    //   left: coords.left + pageXOffset,
+    //   top: coords.top + pageYOffset,
+    //   behavior: 'smooth'
+    // });
+//   });
+// });
+
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  e.preventDefault();
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
+    console.log(id);
     let coords = document.querySelector(id).getBoundingClientRect();
 
     window.scrollTo({
@@ -59,5 +75,5 @@ document.querySelectorAll('.nav__link').forEach((link) => {
       top: coords.top + pageYOffset,
       behavior: 'smooth'
     });
-  });
+  }
 });
