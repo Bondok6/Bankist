@@ -41,4 +41,23 @@ btnScrollTo.addEventListener('click', () => {
     top: s1coords.top + pageYOffset,
     behavior: 'smooth'
   });
-})
+
+  // section1.scrollIntoView({ behavior: 'smooth' });
+
+});
+
+// Page Navigation
+document.querySelectorAll('.nav__link').forEach((link) => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const id = link.getAttribute('href');
+    // console.log(id);
+    let coords = document.querySelector(id).getBoundingClientRect();
+
+    window.scrollTo({
+      left: coords.left + pageXOffset,
+      top: coords.top + pageYOffset,
+      behavior: 'smooth'
+    });
+  });
+});
