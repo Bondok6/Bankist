@@ -5,13 +5,17 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+
 const section1 = document.querySelector('#section--1');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
-const nav = document.querySelector('.nav');
+
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
+
+const nav = document.querySelector('.nav');
 const header = document.querySelector('.header');
+const allSections = document.querySelectorAll('.section');
 
 
 // Modal window
@@ -130,17 +134,38 @@ const navHeight = nav.getBoundingClientRect().height;
 
 const stickyNav = function (entries) {
   const [entry] = entries;
-  console.log(entry);
+  // console.log(entry);
 
   if (!entry.isIntersecting) nav.classList.add('sticky');
   else nav.classList.remove('sticky');
 }
 
-const obsOptions = {
+const headerOptions = {
   root: null,
   threshold: 0,
   rootMargin: `-${navHeight}px`
 };
 
-const headerObserver = new IntersectionObserver(stickyNav,obsOptions);
+const headerObserver = new IntersectionObserver(stickyNav,headerOptions);
 headerObserver.observe(header);
+
+// Reveal sections
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden');
+
+  observer.unobserve(entry.target)
+}
+
+const sectionOptions = {
+  root: null,
+  threshold: 0.15
+}
+
+const sectionObserver = new IntersectionObserver(revealSection, sectionOptions);
+allSections.forEach(section => {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});
