@@ -17,6 +17,9 @@ const nav = document.querySelector('.nav');
 const header = document.querySelector('.header');
 const allSections = document.querySelectorAll('.section');
 
+const imgTargets = document.querySelectorAll('img[data-src]');
+
+
 
 // Modal window
 const openModal = function (e) {
@@ -169,3 +172,25 @@ allSections.forEach(section => {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
 });
+
+// Lazy loading images 
+const loadImg = function (entries, observer) {
+  const [entry] = entries;
+  console.log(entry.target);
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.src = entry.target.dataset.src;
+
+  entry.target.addEventListener('load', () => entry.target.classList.remove('lazy-img'));
+  
+}
+
+const imgOptions = {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px'
+};
+
+const imgObserver = new IntersectionObserver(loadImg, imgOptions);
+imgTargets.forEach(img => imgObserver.observe(img));
