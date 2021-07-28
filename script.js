@@ -118,8 +118,10 @@ nav.addEventListener('mouseover', handleHover.bind(0.5));
 nav.addEventListener('mouseout', handleHover.bind(1));
 
 // Sticky navigation || Bad performance to us scroll event
-const initCoords = section1.getBoundingClientRect();
-window.addEventListener('scroll', function () {
-  if (scrollY > initCoords.top) nav.classList.add('sticky');
-  else nav.classList.remove('sticky');
-})
+// const initCoords = section1.getBoundingClientRect();
+// window.addEventListener('scroll', function () {
+//   if (scrollY > initCoords.top) nav.classList.add('sticky');
+//   else nav.classList.remove('sticky');
+// })
+
+// Sticky navigation || Intersection Observer API
