@@ -174,7 +174,7 @@ const sectionOptions = {
 const sectionObserver = new IntersectionObserver(revealSection, sectionOptions);
 allSections.forEach(section => {
   sectionObserver.observe(section);
-  // section.classList.add('section--hidden');
+  section.classList.add('section--hidden');
 });
 
 // Lazy loading images 
@@ -201,7 +201,7 @@ imgTargets.forEach(img => imgObserver.observe(img));
 
 // Slider
 const maxSlide = slides.length - 1;
-let currSlide = 1;
+let currSlide = 0;
 
 const goToSlide = function (slide) {
   slides.forEach((s, i) => s.style.transform = `translateX(${100 * (i - slide)}%)`);
