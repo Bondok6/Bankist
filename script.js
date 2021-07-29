@@ -266,3 +266,11 @@ const slider = function () {
   
 }
 slider();
+
+
+// window.addEventListener('beforeunload', (e) => {
+//   // Cancel the event as stated by the standard.
+//   e.preventDefault();
+//   // Chrome requires returnValue to be set.
+//   e.returnValue = '';
+// });
