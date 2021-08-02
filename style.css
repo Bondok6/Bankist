@@ -1,5 +1,3 @@
-/* The page is NOT responsive. You can implement responsiveness yourself if you wanna have some fun 😃 */
-
 :root {
   --color-primary: #5ec576;
   --color-secondary: #ffcb03;
@@ -136,6 +134,7 @@ img {
 }
 
 .nav__links {
+  /* display: none; */
   display: flex;
   align-items: center;
   list-style: none;
@@ -168,6 +167,12 @@ img {
   color: inherit;
   background-color: var(--color-primary-darker);
   color: #333;
+}
+
+.nav__menu{
+  display: none;
+  width: 35px;
+  cursor: pointer;
 }
 
 /* HEADER */
