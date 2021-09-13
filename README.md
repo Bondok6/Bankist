@@ -4,6 +4,10 @@
 
 ![Bankist_preview](img/preview.PNG)
 
+## Live Demo
+
+[Live Demo Link](https://bondok6.github.io/Bankist/)
+
 ## Built With
 
 - HTML
@@ -14,7 +18,3 @@
 
 - BEM
 - Google Fonts
-
-## Live Demo
-
-[Live Demo Link](https://bondok6.github.io/Bankist/)
