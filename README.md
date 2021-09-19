@@ -6,7 +6,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://bondok6.github.io/Bankist/)
+> ### [Live Demo Link](https://bondok6.github.io/Bankist/)
 
 ## Built With
 
