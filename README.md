@@ -13,6 +13,7 @@
 - HTML
 - CSS
 - JavaScript
+- DOM
 
 ## Additives used
 
